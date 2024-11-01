@@ -304,6 +304,7 @@ export default function Component() {
             className="absolute w-full h-full object-cover"
           >
             <source src="/placeholder.mp4" type="video/mp4" />
+            
             Your browser does not support the video tag.
           </video>
           <motion.div 
@@ -312,7 +313,7 @@ export default function Component() {
           ></motion.div>
 
           <motion.div
-            className="absolute w-64  h-64 bg-gradient-to-r from-purple-500  to-pink-500 rounded-full opacity-50 blur-xl"
+            className="absolute w-64 h-64 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full opacity-50 blur-xl"
             animate={{
               scale: [1, 1.2, 1],
               rotate: [0, 180, 360],
@@ -326,7 +327,7 @@ export default function Component() {
             }}
           />
 
-          <div className="relative z-10 text-center text-white">
+          <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -334,12 +335,12 @@ export default function Component() {
             >
               {showSanganak && (
                 <motion.h1 
-                  className="text-7xl font-extrabold mb-4 font-sans bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600"
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-4 font-sans bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1 }}
                 >
-                  <span className="font-black text-8xl tracking-tighter" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                  <span className="font-black tracking-tighter" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                     SANGANAK
                   </span>
                 </motion.h1>
@@ -350,8 +351,8 @@ export default function Component() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration:  0.3 }}
-                  className="text-2xl mb-6 font-sans text-gray-300 font-bold"
+                  transition={{ duration: 0.3 }}
+                  className="text-lg sm:text-xl md:text-2xl mb-6 font-sans text-gray-300 font-bold"
                   style={{ fontFamily: "'Montserrat', sans-serif" }}
                 >
                   {taglines[currentTagline]}
@@ -369,21 +370,21 @@ export default function Component() {
           </motion.div>
         </section>
 
-        <div className="max-w-6xl mx-auto p-4 sm:p-6 lg:p-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection id="about">
             <SplineCard>
               <Card className="bg-white/30 dark:bg-gray-800/30 backdrop-blur-md shadow-lg overflow-hidden mb-16">
                 <CardContent className="p-6">
-                  <h2 className="text-3xl font-bold text-center text-indigo-800 dark:text-indigo-300 mb-8">About Sanganak</h2>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-center text-indigo-800 dark:text-indigo-300 mb-8">About Sanganak</h2>
                   <div className="grid grid-cols-1 gap-8">
                     <div>
-                      <p className="text-indigo-800 dark:text-indigo-300 mb-4">
+                      <p className="text-sm sm:text-base text-indigo-800 dark:text-indigo-300 mb-4">
                         Sanganak is a Bihar-based bootstrap startup established in July 2021. We are a passionate team of IT professionals dedicated to providing cutting-edge technology solutions to businesses of all sizes.
                       </p>
-                      <p className="text-indigo-800 dark:text-indigo-300 mb-4">
+                      <p className="text-sm sm:text-base text-indigo-800 dark:text-indigo-300 mb-4">
                         Our mission is to help businesses thrive in the digital age by delivering innovative, scalable, and efficient IT solutions. Since our inception, we've been consistently delivering high-quality services across various domains including web and mobile app development, UI/UX design, blockchain technology, and AI solutions.
                       </p>
-                      <p className="text-indigo-800 dark:text-indigo-300 mb-8">
+                      <p className="text-sm sm:text-base text-indigo-800 dark:text-indigo-300 mb-8">
                         At Sanganak, we believe in the power of technology to transform businesses and improve lives. Our team of skilled professionals is committed to staying at the forefront of technological advancements, ensuring that our clients always receive the most up-to-date and effective solutions for their needs.
                       </p>
                     </div>
@@ -399,10 +400,10 @@ export default function Component() {
                                 height={150}
                                 className="rounded-full mb-4"
                               />
-                              <h3 className="text-xl font-semibold text-indigo-800 dark:text-indigo-300">{founder.name}</h3>
+                              <h3 className="text-lg sm:text-xl font-semibold text-indigo-800 dark:text-indigo-300">{founder.name}</h3>
                               <p className="text-sm text-indigo-600 dark:text-indigo-400">{founder.role}</p>
                             </div>
-                            <p className="text-sm text-indigo-800 dark:text-indigo-300 mb-4">{founder.bio}</p>
+                            <p className="text-xs sm:text-sm text-indigo-800 dark:text-indigo-300 mb-4">{founder.bio}</p>
                             <div className="flex justify-center space-x-4">
                               <Button variant="outline" size="icon" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm" asChild>
                                 <a href={founder.twitter} target="_blank" rel="noopener noreferrer">
@@ -431,8 +432,8 @@ export default function Component() {
             <SplineCard>
               <Card className="bg-white/30 dark:bg-gray-800/30 backdrop-blur-md shadow-lg mb-16">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-center text-indigo-800 dark:text-indigo-300">Our Services</CardTitle>
-                  <CardDescription className="text-center">
+                  <CardTitle className="text-2xl sm:text-3xl text-center text-indigo-800 dark:text-indigo-300">Our Services</CardTitle>
+                  <CardDescription className="text-center text-sm sm:text-base">
                     Comprehensive IT solutions for your business needs
                   </CardDescription>
                 </CardHeader>
@@ -451,7 +452,7 @@ export default function Component() {
                           <Card className="h-full bg-gradient-to-br from-purple-50/80 to-indigo-50/80 dark:from-purple-900/80 dark:to-indigo-900/80 backdrop-blur-sm hover:shadow-md transition-shadow">
                             <CardContent className="flex flex-col items-center justify-center h-full p-6">
                               <service.icon className="w-12 h-12 text-purple-500 dark:text-purple-400 mb-4" />
-                              <h3 className="text-lg font-semibold text-indigo-800 dark:text-indigo-300 text-center">{service.name}</h3>
+                              <h3 className="text-base sm:text-lg font-semibold text-indigo-800 dark:text-indigo-300 text-center">{service.name}</h3>
                             </CardContent>
                           </Card>
                         </SplineCard>
@@ -461,7 +462,7 @@ export default function Component() {
                           whileHover={{ opacity: 1 }}
                           transition={{ duration: 0.3 }}
                         >
-                          <p className="text-sm text-white text-center">{service.description}</p>
+                          <p className="text-xs sm:text-sm text-white text-center">{service.description}</p>
                         </motion.div>
                       </motion.div>
                     ))}
@@ -475,8 +476,8 @@ export default function Component() {
             <SplineCard>
               <Card className="bg-white/30 dark:bg-gray-800/30 backdrop-blur-md shadow-lg mb-16">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-center text-indigo-800 dark:text-indigo-300">Our Portfolio</CardTitle>
-                  <CardDescription className="text-center">
+                  <CardTitle className="text-2xl sm:text-3xl text-center text-indigo-800 dark:text-indigo-300">Our Portfolio</CardTitle>
+                  <CardDescription className="text-center text-sm sm:text-base">
                     Explore our latest projects across various domains
                   </CardDescription>
                 </CardHeader>
@@ -530,8 +531,8 @@ export default function Component() {
             <SplineCard>
               <Card className="bg-white/30 dark:bg-gray-800/30 backdrop-blur-md shadow-lg mb-16">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-center text-indigo-800 dark:text-indigo-300">Testimonials</CardTitle>
-                  <CardDescription className="text-center">
+                  <CardTitle className="text-2xl sm:text-3xl text-center text-indigo-800 dark:text-indigo-300">Testimonials</CardTitle>
+                  <CardDescription className="text-center text-sm sm:text-base">
                     Hear from our satisfied clients about their experiences working with us
                   </CardDescription>
                 </CardHeader>
@@ -556,14 +557,14 @@ export default function Component() {
                           <div key={index} className="w-full flex-shrink-0 px-4">
                             <Card className="h-full bg-gradient-to-br from-indigo-50/80 to-purple-50/80 dark:from-indigo-900/80 dark:to-purple-900/80 backdrop-blur-sm">
                               <CardContent className="p-6 flex flex-col h-full">
-                                <p className="text-indigo-800 dark:text-indigo-300 mb-4">{testimonial.content}</p>
+                                <p className="text-xs sm:text-sm text-indigo-800 dark:text-indigo-300 mb-4">{testimonial.content}</p>
                                 <div className="flex items-center mt-auto">
                                   <div className="w-10 h-10 rounded-full bg-purple-200 dark:bg-purple-700 flex items-center justify-center mr-3">
                                     <span className="text-purple-700 dark:text-purple-200 font-bold">{testimonial.name[0]}</span>
                                   </div>
                                   <div>
-                                    <p className="font-semibold text-purple-600 dark:text-purple-400">{testimonial.name}</p>
-                                    <p className="text-sm text-indigo-600 dark:text-indigo-400">{testimonial.role}</p>
+                                    <p className="font-semibold text-purple-600 dark:text-purple-400 text-sm">{testimonial.name}</p>
+                                    <p className="text-xs text-indigo-600 dark:text-indigo-400">{testimonial.role}</p>
                                   </div>
                                 </div>
                               </CardContent>
@@ -603,8 +604,8 @@ export default function Component() {
             <SplineCard>
               <Card className="bg-white/30 dark:bg-gray-800/30 backdrop-blur-md shadow-lg mb-16">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-center text-indigo-800 dark:text-indigo-300">Contact Us</CardTitle>
-                  <CardDescription className="text-center">
+                  <CardTitle className="text-2xl sm:text-3xl text-center text-indigo-800 dark:text-indigo-300">Contact Us</CardTitle>
+                  <CardDescription className="text-center text-sm sm:text-base">
                     Get in touch with us for your IT needs
                   </CardDescription>
                 </CardHeader>
@@ -623,12 +624,12 @@ export default function Component() {
       </main>
 
       <footer className="bg-gray-100 dark:bg-gray-800 py-12">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <h3 className="text-lg font-semibold mb-4 text-indigo-800 dark:text-indigo-300">Sanganak</h3>
               <p className="text-sm text-indigo-600 dark:text-indigo-400">Innovating the future</p>
-                        </div>
+            </div>
             <div>
               <h3 className="text-lg font-semibold mb-4 text-indigo-800 dark:text-indigo-300">Contact Us</h3>
               <p className="text-sm text-indigo-600 dark:text-indigo-400">Bihar, India 800001</p>
