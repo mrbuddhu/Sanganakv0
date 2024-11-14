@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useState, useCallback, useEffect, useRef } from 'react'
-import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -9,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Palette, Smartphone, Code, Cpu, Layout, LayoutGrid, Menu, Twitter, Linkedin, Instagram, Sun, Moon, Brain, ChevronLeft, ChevronRight, Github, Mouse } from 'lucide-react'
+import { Palette, Smartphone, Code, Cpu, Layout, LayoutGrid, Menu, Twitter, Linkedin, Instagram, Sun, Moon, Brain, ChevronLeft, ChevronRight, Github, Mouse, User, UserCircle } from 'lucide-react'
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
@@ -19,6 +18,7 @@ export default function Component() {
   const [activeSection, setActiveSection] = useState("")
   const [activeTestimonial, setActiveTestimonial] = useState(0)
   const [showSanganak, setShowSanganak] = useState(true)
+  const [currentTagline, setCurrentTagline] = useState(0)
   const videoRef = useRef<HTMLVideoElement>(null)
   const { scrollYProgress } = useScroll()
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
@@ -31,8 +31,6 @@ export default function Component() {
     "Your imagination, our innovation",
     "Crafting digital experiences that inspire",
   ]
-
-  const [currentTagline, setCurrentTagline] = useState(0)
 
   useEffect(() => {
     const taglineInterval = setInterval(() => {
@@ -92,45 +90,37 @@ export default function Component() {
 
   const portfolioItems = {
     designs: [
-      { title: "Brand Identity for Tech Startup", image: "/placeholder.svg?height=200&width=300" },
-      { title: "UI Design for E-commerce App", image: "/placeholder.svg?height=200&width=300" },
-      { title: "Infographic Design for Annual Report", image: "/placeholder.svg?height=200&width=300" },
+      { title: "Brand Identity for Tech Startup", image: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=300&h=200&fit=crop" },
+      { title: "UI Design for E-commerce App", image: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=300&h=200&fit=crop" },
+      { title: "Infographic Design for Annual Report", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=200&fit=crop" },
     ],
     web: [
-      { title: "E-learning Platform", image: "/placeholder.svg?height=200&width=300" },
-      { title: "Real Estate Listing Website", image: "/placeholder.svg?height=200&width=300" },
-      { title: "Healthcare Management System", image: "/placeholder.svg?height=200&width=300" },
+      { title: "E-learning Platform", image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=300&h=200&fit=crop" },
+      { title: "Real Estate Listing Website", image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=300&h=200&fit=crop" },
+      { title: "Healthcare Management System", image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=300&h=200&fit=crop" },
     ],
     mobile: [
-      { title: "Fitness Tracking App", image: "/placeholder.svg?height=200&width=300" },
-      { title: "Food Delivery App", image: "/placeholder.svg?height=200&width=300" },
-      { title: "Travel Planning App", image: "/placeholder.svg?height=200&width=300" },
+      { title: "Fitness Tracking App", image: "https://images.unsplash.com/photo-1510017803434-a899398421b3?w=300&h=200&fit=crop" },
+      { title: "Food Delivery App", image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=300&h=200&fit=crop" },
+      { title: "Travel Planning App", image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=300&h=200&fit=crop" },
     ],
     blockchain: [
-      { title: "Decentralized Finance (DeFi) Platform", image: "/placeholder.svg?height=200&width=300" },
-      { title: "NFT Marketplace", image: "/placeholder.svg?height=200&width=300" },
-      { title: "Supply Chain Tracking System", image: "/placeholder.svg?height=200&width=300" },
+      { title: "Decentralized Finance (DeFi) Platform", image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=300&h=200&fit=crop" },
+      { title: "NFT Marketplace", image: "https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?w=300&h=200&fit=crop" },
+      { title: "Supply Chain Tracking System", image: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=300&h=200&fit=crop" },
     ],
     ai: [
-      { title: "AI-Powered Chatbot", image: "/placeholder.svg?height=200&width=300" },
-      { title: "Predictive Analytics Dashboard", image: "/placeholder.svg?height=200&width=300" },
-      { title: "Computer Vision for Quality Control", image: "/placeholder.svg?height=200&width=300" },
+      { title: "AI-Powered Chatbot", image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=300&h=200&fit=crop" },
+      { title: "Predictive Analytics Dashboard", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=200&fit=crop" },
+      { title: "Computer Vision for Quality Control", image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=300&h=200&fit=crop" },
     ],
   }
-
-  const testimonials = [
-    { name: "John Doe", role: "CEO, TechCorp", content: "Sanganak's expertise in blockchain technology helped us revolutionize our supply chain management. Their team's dedication and innovative solutions exceeded our expectations." },
-    { name: "Jane Smith", role: "CTO, DesignHub", content: "The UI/UX design Sanganak created for our app was nothing short of brilliant. It significantly improved user engagement and satisfaction." },
-    { name: "Alex Johnson", role: "Founder, EduTech", content: "Working with Sanganak on our e-learning platform was a game-changer. Their web development skills and attention to detail are unparalleled." },
-    { name: "Emily Brown", role: "Marketing Director, GrowthCo", content: "Sanganak's AI solutions have transformed our marketing strategies. The insights we've gained have been invaluable for our business growth." },
-    { name: "Michael Lee", role: "CIO, FinTech Innovations", content: "The mobile app Sanganak developed for us has received overwhelmingly positive feedback from our users. Their team's technical expertise and creativity are truly impressive." },
-  ]
 
   const founders = [
     {
       name: "mrbuddhu",
       role: "Dev Lead & Co-founder",
-      image: "/placeholder.svg?height=300&width=300",
+      icon: User,
       bio: "mrbuddhu is a passionate developer and tech enthusiast with years of experience in creating innovative solutions. As the Dev Lead of Sanganak, he drives the technical vision and ensures the delivery of high-quality products.",
       twitter: "https://twitter.com/mrbuddhu",
       linkedin: "https://linkedin.com/in/mrbuddhu"
@@ -138,11 +128,19 @@ export default function Component() {
     {
       name: "msbuddhu",
       role: "Design Lead & Co-founder",
-      image: "/placeholder.svg?height=300&width=300",
+      icon: UserCircle,
       bio: "msbuddhu is a creative powerhouse with a keen eye for design and user experience. As the Design Lead of Sanganak, she ensures that all our products are not only functional but also aesthetically pleasing and user-friendly.",
       twitter: "https://twitter.com/msbuddhu",
       linkedin: "https://linkedin.com/in/msbuddhu"
     }
+  ]
+
+  const testimonials = [
+    { name: "John Doe", role: "CEO, TechCorp", content: "Sanganak's expertise in blockchain technology helped us revolutionize our supply chain management. Their team's dedication and innovative solutions exceeded our expectations." },
+    { name: "Jane Smith", role: "CTO, DesignHub", content: "The UI/UX design Sanganak created for our app was nothing short of brilliant. It significantly improved user engagement and satisfaction." },
+    { name: "Alex Johnson", role: "Founder, EduTech", content: "Working with Sanganak on our e-learning platform was a game-changer. Their web development skills and attention to detail are unparalleled." },
+    { name: "Emily Brown", role: "Marketing Director, GrowthCo", content: "Sanganak's AI solutions have transformed our marketing strategies. The insights we've gained have been invaluable for our business growth." },
+    { name: "Michael Lee", role: "CIO, FinTech Innovations", content: "The mobile app Sanganak developed for us has received overwhelmingly positive feedback from our users. Their team's technical expertise and creativity are truly impressive." },
   ]
 
   const AnimatedSection = ({ children, id }: { children: React.ReactNode; id: string }) => {
@@ -301,7 +299,7 @@ export default function Component() {
             playsInline
             className="absolute w-full h-full object-cover"
           >
-            <source src="/placeholder.mp4" type="video/mp4" />
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-code-screen-close-up-1728-large.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <motion.div 
@@ -390,13 +388,7 @@ export default function Component() {
                         <Card key={founder.name} className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm shadow-md overflow-hidden">
                           <CardContent className="p-6">
                             <div className="flex flex-col items-center mb-4">
-                              <Image
-                                src={founder.image}
-                                alt={founder.name}
-                                width={150}
-                                height={150}
-                                className="rounded-full mb-4"
-                              />
+                              <founder.icon className="w-24 h-24 text-indigo-600 dark:text-indigo-400 mb-4" />
                               <h3 className="text-lg sm:text-xl font-semibold text-indigo-800 dark:text-indigo-300">{founder.name}</h3>
                               <p className="text-sm text-indigo-600 dark:text-indigo-400">{founder.role}</p>
                             </div>
@@ -502,11 +494,9 @@ export default function Component() {
                               <SplineCard>
                                 <Card className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm">
                                   <CardContent className="p-4">
-                                    <Image
+                                    <img
                                       src={item.image}
                                       alt={item.title}
-                                      width={300}
-                                      height={200}
                                       className="w-full h-40 object-cover rounded-md mb-2"
                                     />
                                     <h3 className="text-sm font-semibold text-indigo-800 dark:text-indigo-300">{item.title}</h3>
@@ -554,13 +544,10 @@ export default function Component() {
                           <div key={index} className="w-full flex-shrink-0 px-4">
                             <Card className="h-full bg-gradient-to-br from-indigo-50/80 to-purple-50/80 dark:from-indigo-900/80 dark:to-purple-900/80 backdrop-blur-sm">
                               <CardContent className="p-6 flex flex-col h-full">
-                                <p className="text-xs sm:text-sm text-indigo-800 dark:text-indigo-300 mb-4">{testimonial.content}</p>
-                                <div className="flex items-center mt-auto">
-                                  <div className="w-10 h-10 rounded-full bg-purple-200 dark:bg-purple-700 flex items-center justify-center mr-3">
-                                    <span className="text-purple-700 dark:text-purple-200 font-bold">{testimonial.name[0]}</span>
-                                  </div>
-                                  <div>
-                                    <p className="font-semibold text-purple-600 dark:text-purple-400 text-sm">{testimonial.name}</p>
+                                <p className="text-xs sm:text-sm text-indigo-800 dark:text-indigo-300 mb-4 flex-grow">{testimonial.content}</p>
+                                <div className="flex items-center justify-end">
+                                  <div className="text-right">
+                                    <p className="text-sm font-semibold text-indigo-800 dark:text-indigo-300">{testimonial.name}</p>
                                     <p className="text-xs text-indigo-600 dark:text-indigo-400">{testimonial.role}</p>
                                   </div>
                                 </div>
@@ -579,19 +566,6 @@ export default function Component() {
                       <ChevronRight className="h-6 w-6" />
                     </Button>
                   </div>
-                  <div className="flex justify-center mt-4">
-                    {testimonials.map((_, index) => (
-                      <Button
-                        key={index}
-                        variant="ghost"
-                        size="sm"
-                        className={`w-2 h-2 rounded-full mx-1 ${
-                          index === activeTestimonial ? 'bg-purple-500' : 'bg-gray-300'
-                        }`}
-                        onClick={() => setActiveTestimonial(index)}
-                      />
-                    ))}
-                  </div>
                 </CardContent>
               </Card>
             </SplineCard>
@@ -607,12 +581,26 @@ export default function Component() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form className="space-y-4" onSubmit={handleSubmit}>
-                    <Input name="name" placeholder="Your Name" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm" required />
-                    <Input name="email" type="email" placeholder="Your Email" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm" required />
-                    <Textarea name="message" placeholder="Your Message" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm" required />
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <Input name="name" placeholder="Your Name" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm" />
+                    <Input name="email" type="email" placeholder="Your Email" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm" />
+                    <Textarea name="message" placeholder="Your Message" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm" />
                     <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700 text-white">Send Message</Button>
                   </form>
+                  <div className="mt-6 flex justify-center space-x-4">
+                    <Button variant="outline" size="icon" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm">
+                      <Twitter className="h-4 w-4" />
+                    </Button>
+                    <Button variant="outline" size="icon" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm">
+                      <Linkedin className="h-4 w-4" />
+                    </Button>
+                    <Button variant="outline" size="icon" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm">
+                      <Instagram className="h-4 w-4" />
+                    </Button>
+                    <Button variant="outline" size="icon" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm">
+                      <Github className="h-4 w-4" />
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             </SplineCard>
@@ -620,44 +608,13 @@ export default function Component() {
         </div>
       </main>
 
-      <footer className="bg-gray-100 dark:bg-gray-800 py-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-indigo-800 dark:text-indigo-300">Sanganak</h3>
-              <p className="text-sm text-indigo-600 dark:text-indigo-400">Innovating the future</p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-indigo-800 dark:text-indigo-300">Contact Us</h3>
-              <p className="text-sm text-indigo-600 dark:text-indigo-400">Bihar, India 800001</p>
-              <p className="text-sm text-indigo-600 dark:text-indigo-400">Phone: +91 123 456 7890</p>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-indigo-800 dark:text-indigo-300">Follow Us</h3>
-              <div className="flex space-x-4">
-                <Button variant="outline" size="icon" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm">
-                  <Twitter className="h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="icon" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm">
-                  <Linkedin className="h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="icon" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm">
-                  <Instagram className="h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="icon" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm">
-                  <Github className="h-4 w-4" />
-                </Button>
-              </div>
-            </div>
-          </div>
-          <div className="mt-8 border-t border-gray-200 dark:border-gray-700 pt-8 text-center">
-            <p className="text-sm text-indigo-600 dark:text-indigo-400">
-              Built with ❤️ by{" "}
-              <a href="https://mrbuddhu.com" className="text-purple-600 dark:text-purple-400 hover:underline">@mrbuddhu</a> &{" "}
-              <a href="https://msbuddhu.com" className="text-purple-600 dark:text-purple-400 hover:underline">@msbuddhu {" "}©️2021.</a>
-            </p>
-          </div>
-        </div>
+      <footer className="mt-12 text-center text-indigo-800 dark:text-indigo-300 pb-8 flex flex-col items-center space-y-2">
+        <p className="text-sm">
+          Built with love by{" "}
+          <a href="https://mrbuddhu.com" className="text-purple-600 dark:text-purple-400 hover:underline">@mrbuddhu</a> &{" "}
+          <a href="https://msbuddhu.com" className="text-purple-600 dark:text-purple-400 hover:underline">@msbuddhu</a>
+        </p>
+        <p className="text-xs text-indigo-600 dark:text-indigo-400">Est. 2021</p>
       </footer>
     </div>
   )
