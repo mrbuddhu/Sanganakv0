@@ -1,14 +1,15 @@
-"use client"
+'use client'
 
 import React, { useState, useCallback, useEffect, useRef } from 'react'
 import Link from "next/link"
+import Image from "next/image"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Palette, Smartphone, Code, Cpu, Layout, LayoutGrid, Menu, Twitter, Linkedin, Instagram, Sun, Moon, Brain, ChevronLeft, ChevronRight, Github, Mouse, User, UserCircle } from 'lucide-react'
+import { Palette, Smartphone, Code, Cpu, Layout, LayoutGrid, Menu, Twitter, Linkedin, Instagram, Sun, Moon, Brain, ChevronLeft, ChevronRight, Github, Mouse, User, UserIcon as UserFemale, ArrowRight } from 'lucide-react'
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
@@ -128,7 +129,7 @@ export default function Component() {
     {
       name: "msbuddhu",
       role: "Design Lead & Co-founder",
-      icon: UserCircle,
+      icon: User,
       bio: "msbuddhu is a creative powerhouse with a keen eye for design and user experience. As the Design Lead of Sanganak, she ensures that all our products are not only functional but also aesthetically pleasing and user-friendly.",
       twitter: "https://twitter.com/msbuddhu",
       linkedin: "https://linkedin.com/in/msbuddhu"
@@ -208,13 +209,6 @@ export default function Component() {
     })
   }
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const formData = new FormData(e.currentTarget)
-    const data = Object.fromEntries(formData)
-    console.log("Form submitted with data:", data)
-  }
-
   const scrollToHero = () => {
     const heroSection = document.getElementById('hero')
     if (heroSection) {
@@ -222,67 +216,76 @@ export default function Component() {
     }
   }
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contacts')
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <div className={`min-h-screen transition-colors duration-300 ${isDarkMode ? 'dark bg-gray-900 text-white' : 'bg-gradient-to-b from-purple-100 to-indigo-100'}`}>
-      <nav className="sticky top-0 z-20 backdrop-blur-lg bg-white/10 dark:bg-gray-800/10 shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <Link href="/" className="flex items-center">
-              <div 
-                onClick={scrollToHero}
-                className="bg-purple-600 text-white px-3 py-1 rounded cursor-pointer"
-              >
-                <span className="text-lg font-semibold">SANGANAK</span>
-              </div>
-            </Link>
-            <div className="hidden md:flex space-x-4">
-              {menuItems.map((item) => (
-                <motion.button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`text-indigo-800 dark:text-indigo-300 hover:text-purple-500 dark:hover:text-purple-400 transition-colors ${
-                    activeSection === item.toLowerCase() ? 'font-bold' : ''
-                  }`}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
+      <header>
+        <nav className="sticky top-0 z-20 backdrop-blur-lg bg-white/10 dark:bg-gray-800/10 shadow-lg" aria-label="Main navigation">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-16">
+              <Link href="/" className="flex items-center">
+                <div 
+                  onClick={scrollToHero}
+                  className="bg-purple-600 text-white px-3 py-1 rounded cursor-pointer"
                 >
-                  {item}
-                </motion.button>
-              ))}
-            </div>
-            <div className="flex items-center">
-              <Button variant="ghost" size="icon" onClick={toggleDarkMode} className="mr-2">
-                {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-              </Button>
-              <Button variant="ghost" className="md:hidden" onClick={toggleMenu}>
-                <Menu />
-                <span className="sr-only">Toggle menu</span>
-              </Button>
+                <span className="text-lg font-semibold">SANGANAK</span>
+                </div>
+              </Link>
+              <div className="hidden md:flex space-x-4">
+                {menuItems.map((item) => (
+                  <motion.button
+                    key={item}
+                    onClick={() => scrollToSection(item.toLowerCase())}
+                    className={`text-indigo-800 dark:text-indigo-300 hover:text-purple-500 dark:hover:text-purple-400 transition-colors ${
+                      activeSection === item.toLowerCase() ? 'font-bold' : ''
+                    }`}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {item}
+                  </motion.button>
+                ))}
+              </div>
+              <div className="flex items-center">
+                <Button variant="ghost" size="icon" onClick={toggleDarkMode} className="mr-2">
+                  {isDarkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+                </Button>
+                <Button variant="ghost" className="md:hidden" onClick={toggleMenu}>
+                  <Menu />
+                  <span className="sr-only">Toggle menu</span>
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
-              className="md:hidden"
-            >
-              {menuItems.map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase())}
-                  className="block w-full px-4 py-2 text-left text-indigo-800 dark:text-indigo-300 hover:bg-purple-100 dark:hover:bg-purple-900 transition-colors"
-                >
-                  {item}
-                </button>
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
+          <AnimatePresence>
+            {isMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.3 }}
+                className="md:hidden"
+              >
+                {menuItems.map((item) => (
+                  <button
+                    key={item}
+                    onClick={() => scrollToSection(item.toLowerCase())}
+                    className="block w-full px-4 py-2 text-left text-indigo-800 dark:text-indigo-300 hover:bg-purple-100 dark:hover:bg-purple-900 transition-colors"
+                  >
+                    {item}
+                  </button>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </nav>
+      </header>
 
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-purple-500 z-50"
@@ -347,12 +350,25 @@ export default function Component() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
-                  className="text-lg sm:text-xl md:text-2xl mb-6 font-sans text-gray-300 font-bold"
+                  className="text-lg sm:text-xl md:text-2xl mb-8 font-sans text-gray-300 font-bold"
                   style={{ fontFamily: "'Montserrat', sans-serif" }}
                 >
                   {taglines[currentTagline]}
                 </motion.p>
               </AnimatePresence>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+              >
+                <Button
+                  onClick={scrollToContact}
+                  className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 text-lg"
+                >
+                  Let's Start
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </motion.div>
             </motion.div>
           </div>
           <motion.div 
@@ -494,9 +510,11 @@ export default function Component() {
                               <SplineCard>
                                 <Card className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm">
                                   <CardContent className="p-4">
-                                    <img
+                                    <Image
                                       src={item.image}
                                       alt={item.title}
+                                      width={300}
+                                      height={200}
                                       className="w-full h-40 object-cover rounded-md mb-2"
                                     />
                                     <h3 className="text-sm font-semibold text-indigo-800 dark:text-indigo-300">{item.title}</h3>
@@ -581,10 +599,21 @@ export default function Component() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <Input name="name" placeholder="Your Name" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm" />
-                    <Input name="email" type="email" placeholder="Your Email" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm" />
-                    <Textarea name="message" placeholder="Your Message" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm" />
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      const formData = new FormData(e.currentTarget);
+                      const name = formData.get('name') as string;
+                      const email = formData.get('email') as string;
+                      const message = formData.get('message') as string;
+                      const mailtoLink = `mailto:contact.sanganak@gmail.com?subject=Contact from ${name}&body=${message}%0D%0A%0D%0AFrom: ${name} (${email})`;
+                      window.location.href = mailtoLink;
+                    }}
+                    className="space-y-4"
+                  >
+                    <Input name="name" placeholder="Your Name" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm" required />
+                    <Input name="email" type="email" placeholder="Your Email" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm" required />
+                    <Textarea name="message" placeholder="Your Message" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm" required />
                     <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700 text-white">Send Message</Button>
                   </form>
                   <div className="mt-6 flex justify-center space-x-4">
