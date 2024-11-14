@@ -20,6 +20,9 @@ export default function Component() {
   const [activeTestimonial, setActiveTestimonial] = useState(0)
   const [showSanganak, setShowSanganak] = useState(true)
   const [currentTagline, setCurrentTagline] = useState(0)
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
   const videoRef = useRef<HTMLVideoElement>(null)
   const { scrollYProgress } = useScroll()
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
@@ -129,7 +132,7 @@ export default function Component() {
     {
       name: "msbuddhu",
       role: "Design Lead & Co-founder",
-      icon: User,
+      icon: UserFemale,
       bio: "msbuddhu is a creative powerhouse with a keen eye for design and user experience. As the Design Lead of Sanganak, she ensures that all our products are not only functional but also aesthetically pleasing and user-friendly.",
       twitter: "https://twitter.com/msbuddhu",
       linkedin: "https://linkedin.com/in/msbuddhu"
@@ -221,6 +224,12 @@ export default function Component() {
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' })
     }
+  }
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const mailtoLink = `mailto:contact.sanganak@gmail.com?subject=Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`
+    window.location.href = mailtoLink
   }
 
   return (
@@ -599,21 +608,32 @@ export default function Component() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      const formData = new FormData(e.currentTarget);
-                      const name = formData.get('name') as string;
-                      const email = formData.get('email') as string;
-                      const message = formData.get('message') as string;
-                      const mailtoLink = `mailto:contact.sanganak@gmail.com?subject=Contact from ${name}&body=${message}%0D%0A%0D%0AFrom: ${name} (${email})`;
-                      window.location.href = mailtoLink;
-                    }}
-                    className="space-y-4"
-                  >
-                    <Input name="name" placeholder="Your Name" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm" required />
-                    <Input name="email" type="email" placeholder="Your Email" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm" required />
-                    <Textarea name="message" placeholder="Your Message" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm" required />
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <Input
+                      name="name"
+                      placeholder="Your Name"
+                      className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                    />
+                    <Input
+                      name="email"
+                      type="email"
+                      placeholder="Your Email"
+                      className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                    <Textarea
+                      name="message"
+                      placeholder="Your Message"
+                      className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm"
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      required
+                    />
                     <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700 text-white">Send Message</Button>
                   </form>
                   <div className="mt-6 flex justify-center space-x-4">
