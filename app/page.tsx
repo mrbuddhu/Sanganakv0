@@ -1,15 +1,15 @@
 "use client"
 
-import React, { useState, useCallback, useEffect, useRef } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react'
 import Image from "next/image"
 import Link from "next/link"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Palette, Smartphone, Code, Cpu, Layout, LayoutGrid, Menu, Twitter, Linkedin, Instagram, Sun, Moon, Brain, ChevronLeft, ChevronRight, Github, Mouse } from "lucide-react"
+import { Palette, Smartphone, Code, Cpu, Layout, LayoutGrid, Menu, Twitter, Linkedin, Instagram, Sun, Moon, Brain, ChevronLeft, ChevronRight, Github, Mouse } from 'lucide-react'
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
@@ -56,19 +56,17 @@ export default function Component() {
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.playbackRate = 0.75;
+      videoRef.current.playbackRate = 0.75
     }
-
-    const sections = document.querySelectorAll("section[id]")
-    const navLi = document.querySelectorAll("nav ul li")
 
     const handleScroll = () => {
       const scrollPosition = window.scrollY
       setShowSanganak(scrollPosition < 100)
 
+      const sections = document.querySelectorAll("section[id]")
       let current = ""
       sections.forEach((section) => {
-        const sectionTop = section.offsetTop
+        const sectionTop = (section as HTMLElement).offsetTop
         const sectionHeight = section.clientHeight
         if (scrollY >= sectionTop - sectionHeight / 3) {
           current = section.getAttribute("id") || ""
@@ -304,7 +302,6 @@ export default function Component() {
             className="absolute w-full h-full object-cover"
           >
             <source src="/placeholder.mp4" type="video/mp4" />
-            
             Your browser does not support the video tag.
           </video>
           <motion.div 
