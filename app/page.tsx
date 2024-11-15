@@ -9,20 +9,61 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Palette, Smartphone, Code, Cpu, Layout, LayoutGrid, Menu, Twitter, Linkedin, Instagram, Sun, Moon, Brain, ChevronLeft, ChevronRight, Github, Mouse, User, UserIcon as UserFemale, ArrowRight } from 'lucide-react'
+import { Palette, Smartphone, Code, Cpu, Layout, LayoutGrid, Menu, Twitter, Linkedin, Instagram, Sun, Moon, Brain, ChevronLeft, ChevronRight, Github, Mouse, User, UserIcon as UserFemale, ArrowRight, PhoneIcon as WhatsApp } from 'lucide-react'
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
-export default function Component() {
+function ContactForm() {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const mailtoLink = `mailto:contact.sanganak@gmail.com?subject=Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`
+    window.location.href = mailtoLink
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <Input
+        name="name"
+        placeholder="Your Name"
+        className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        required
+      />
+      <Input
+        name="email"
+        type="email"
+        placeholder="Your Email"
+        className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        required
+      />
+      <Textarea
+        name="message"
+        placeholder="Your Message"
+        className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        required
+      />
+      <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700 text-white">Send Message</Button>
+    </form>
+  )
+}
+
+export default function Page() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isDarkMode, setIsDarkMode] = useState(false)
   const [activeSection, setActiveSection] = useState("")
   const [activeTestimonial, setActiveTestimonial] = useState(0)
   const [showSanganak, setShowSanganak] = useState(true)
   const [currentTagline, setCurrentTagline] = useState(0)
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
+  const [activePortfolioTab, setActivePortfolioTab] = useState("designs")
   const videoRef = useRef<HTMLVideoElement>(null)
   const { scrollYProgress } = useScroll()
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
@@ -212,24 +253,11 @@ export default function Component() {
     })
   }
 
-  const scrollToHero = () => {
-    const heroSection = document.getElementById('hero')
-    if (heroSection) {
-      heroSection.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
   const scrollToContact = () => {
     const contactSection = document.getElementById('contacts')
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: 'smooth' })
     }
-  }
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const mailtoLink = `mailto:contact.sanganak@gmail.com?subject=Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`
-    window.location.href = mailtoLink
   }
 
   return (
@@ -240,7 +268,6 @@ export default function Component() {
             <div className="flex items-center justify-between h-16">
               <Link href="/" className="flex items-center">
                 <div 
-                  onClick={scrollToHero}
                   className="bg-purple-600 text-white px-3 py-1 rounded cursor-pointer"
                 >
                 <span className="text-lg font-semibold">SANGANAK</span>
@@ -496,7 +523,7 @@ export default function Component() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Tabs defaultValue="designs" className="w-full">
+                  <Tabs value={activePortfolioTab} onValueChange={setActivePortfolioTab} className="w-full">
                     <TabsList className="grid w-full grid-cols-5">
                       <TabsTrigger value="designs">Designs</TabsTrigger>
                       <TabsTrigger value="web">Web</TabsTrigger>
@@ -608,34 +635,7 @@ export default function Component() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <Input
-                      name="name"
-                      placeholder="Your Name"
-                      className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      required
-                    />
-                    <Input
-                      name="email"
-                      type="email"
-                      placeholder="Your Email"
-                      className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                    />
-                    <Textarea
-                      name="message"
-                      placeholder="Your Message"
-                      className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm"
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                      required
-                    />
-                    <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700 text-white">Send Message</Button>
-                  </form>
+                  <ContactForm />
                   <div className="mt-6 flex justify-center space-x-4">
                     <Button variant="outline" size="icon" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm">
                       <Twitter className="h-4 w-4" />
@@ -648,6 +648,9 @@ export default function Component() {
                     </Button>
                     <Button variant="outline" size="icon" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm">
                       <Github className="h-4 w-4" />
+                    </Button>
+                    <Button variant="outline" size="icon" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm">
+                      <WhatsApp className="h-4 w-4" />
                     </Button>
                   </div>
                 </CardContent>
