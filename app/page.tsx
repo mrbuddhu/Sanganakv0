@@ -14,13 +14,23 @@ import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "fra
 import { useInView } from "react-intersection-observer"
 
 function ContactForm() {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prevData => ({
+      ...prevData,
+      [name]: value
+    }))
+  }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const mailtoLink = `mailto:contact.sanganak@gmail.com?subject=Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`
+    const mailtoLink = `mailto:contact.sanganak@gmail.com?subject=Contact from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`
     window.location.href = mailtoLink
   }
 
@@ -30,8 +40,8 @@ function ContactForm() {
         name="name"
         placeholder="Your Name"
         className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        value={formData.name}
+        onChange={handleChange}
         required
       />
       <Input
@@ -39,16 +49,16 @@ function ContactForm() {
         type="email"
         placeholder="Your Email"
         className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        value={formData.email}
+        onChange={handleChange}
         required
       />
       <Textarea
         name="message"
         placeholder="Your Message"
         className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
+        value={formData.message}
+        onChange={handleChange}
         required
       />
       <Button type="submit" className="w-full bg-purple-600 hover:bg-purple-700 text-white">Send Message</Button>
