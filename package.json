@@ -20,6 +20,7 @@
     "lru-cache": "^11.0.2",
     "lucide-react": "^0.454.0",
     "next": "15.0.2",
+    "next-sitemap": "^4.2.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-intersection-observer": "^9.13.1",

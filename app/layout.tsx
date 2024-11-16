@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: 'Sanganak',
     images: [
       {
-        url: 'https://placeholder.com/1200x630',
+        url: 'https://sanganak.org/api/og',
         width: 1200,
         height: 630,
       },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Sanganak - Innovative IT Solutions | Web, Mobile, Blockchain, AI',
     description: 'Sanganak is a Bihar-based IT startup providing cutting-edge technology solutions including web and mobile app development, UI/UX design, blockchain, and AI solutions.',
-    images: ['https://placeholder.com/1200x600'],
+    images: ['https://sanganak.org/api/og'],
   },
   robots: {
     index: true,
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: 'https://placeholder.com/favicon.ico',
-    shortcut: 'https://placeholder.com/favicon-16x16.png',
-    apple: 'https://placeholder.com/apple-touch-icon.png',
+    icon: '/favicon.ico',
+    shortcut: '/favicon-16x16.png',
+    apple: '/apple-touch-icon.png',
   },
 }
 
