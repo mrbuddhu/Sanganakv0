@@ -524,8 +524,7 @@ ${formData.message}`)}`
                               initial={{ opacity: 0, scale: 0.9 }}
                               animate={{ opacity: 1, scale: 1 }}
                               transition={{ duration: 0.5, delay: index * 0.1 }}
-                              while
-                              hover={{ scale: 1.05 }}
+                              whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
                             >
                               <Card className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm">
@@ -667,7 +666,7 @@ ${formData.message}`)}`
                       </div>
                     </div>
                     <div className="text-center text-sm sm:text-base">
-                      <p className="mt-2">Email: <Link href="mailto:contact.sanganak@gmail.com" className="text-indigo-600 dark:text-indigo-400 hover:underline">contact.sanganak@gmail.com</Link></p>
+                      <p className="mt-2">Email: <Link href="mailto:contact@sanganak.com" className="text-indigo-600 dark:text-indigo-400 hover:underline">contact@sanganak.com</Link></p>
                     </div>
                   </div>
                 </CardContent>
