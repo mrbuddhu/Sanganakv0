@@ -632,7 +632,7 @@ ${formData.message}`)}`
                         <MessageCircle className="mr-2 h-4 w-4" />
                         <Link href="https://wa.me/919631864610" target="_blank" rel="noopener noreferrer">
                           <span className="sr-only">Contact us on WhatsApp at +91 9631864610</span>
-                          WhatsApp
+                          Chat
                         </Link>
                       </Button>
                     </div>
