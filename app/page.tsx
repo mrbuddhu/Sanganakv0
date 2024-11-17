@@ -524,7 +524,8 @@ ${formData.message}`)}`
                               initial={{ opacity: 0, scale: 0.9 }}
                               animate={{ opacity: 1, scale: 1 }}
                               transition={{ duration: 0.5, delay: index * 0.1 }}
-                              whileHover={{ scale: 1.05 }}
+                              while
+                              Hover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
                             >
                               <Card className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm">
@@ -640,10 +641,10 @@ ${formData.message}`)}`
                       <p className="text-sm sm:text-base mb-2">Connect with us on social media:</p>
                       <div className="flex justify-center space-x-4">
                         <Button variant="outline" size="icon" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm">
-                          <Link href="https://twitter.com/sanganak" target="_blank" rel="noopener noreferrer">
+                          <Link href="https://twitter.com/sanganakorg" target="_blank" rel="noopener noreferrer">
                             <Twitter className="h-4 w-4" />
                             <span className="sr-only">Twitter</span>
-                            <Link href="https://twitter.com/sanganakorg" target="_blank" rel="noopener noreferrer">
+                          </Link>
                         </Button>
                         <Button variant="outline" size="icon" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm">
                           <Link href="https://linkedin.com/company/sanganakorg" target="_blank" rel="noopener noreferrer">
@@ -666,7 +667,7 @@ ${formData.message}`)}`
                       </div>
                     </div>
                     <div className="text-center text-sm sm:text-base">
-                      <p className="mt-2">Email: <Link href="mailto:contact@sanganak.com" className="text-indigo-600 dark:text-indigo-400 hover:underline">contact@sanganak.com</Link></p>
+                      <p className="mt-2">Email: <Link href="mailto:contact.sanganak@gmail.com" className="text-indigo-600 dark:text-indigo-400 hover:underline">contact@sanganak.com</Link></p>
                     </div>
                   </div>
                 </CardContent>
@@ -679,8 +680,8 @@ ${formData.message}`)}`
       <footer className="mt-12 text-center text-indigo-800 dark:text-indigo-300 pb-8 flex flex-col items-center space-y-2">
         <p className="text-sm">
           Built with love by{" "}
-          <a href="https://linktr.ee/mrbuddhu target="_blank"" className="text-purple-600 dark:text-purple-400 hover:underline">@mrbuddhu</a> &{" "}
-          <a href="https://linktr.ee/msbuddhu target="_blank"" className="text-purple-600 dark:text-purple-400 hover:underline">@msbuddhu</a>
+          <a href="https://linktr.ee/mrbuddhu" target="_blank" rel="noopener noreferrer" className="text-purple-600 dark:text-purple-400 hover:underline">@mrbuddhu</a> &{" "}
+          <a href="https://linktr.ee/msbuddhu" target="_blank" rel="noopener noreferrer" className="text-purple-600 dark:text-purple-400 hover:underline">@msbuddhu</a>
         </p>
         <p className="text-xs text-indigo-600 dark:text-indigo-400">Est. 2021</p>
       </footer>
