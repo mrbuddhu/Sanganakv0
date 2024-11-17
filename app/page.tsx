@@ -643,22 +643,22 @@ ${formData.message}`)}`
                           <Link href="https://twitter.com/sanganak" target="_blank" rel="noopener noreferrer">
                             <Twitter className="h-4 w-4" />
                             <span className="sr-only">Twitter</span>
-                          </Link>
+                            <Link href="https://twitter.com/sanganakorg" target="_blank" rel="noopener noreferrer">
                         </Button>
                         <Button variant="outline" size="icon" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm">
-                          <Link href="https://linkedin.com/company/sanganak" target="_blank" rel="noopener noreferrer">
+                          <Link href="https://linkedin.com/company/sanganakorg" target="_blank" rel="noopener noreferrer">
                             <Linkedin className="h-4 w-4" />
                             <span className="sr-only">LinkedIn</span>
                           </Link>
                         </Button>
                         <Button variant="outline" size="icon" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm">
-                          <Link href="https://instagram.com/sanganak" target="_blank" rel="noopener noreferrer">
+                          <Link href="https://instagram.com/sanganakorg" target="_blank" rel="noopener noreferrer">
                             <Instagram className="h-4 w-4" />
                             <span className="sr-only">Instagram</span>
                           </Link>
                         </Button>
                         <Button variant="outline" size="icon" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm">
-                          <Link href="https://github.com/sanganak" target="_blank" rel="noopener noreferrer">
+                          <Link href="https://github.com/SanganakOrg" target="_blank" rel="noopener noreferrer">
                             <Github className="h-4 w-4" />
                             <span className="sr-only">GitHub</span>
                           </Link>
@@ -679,8 +679,8 @@ ${formData.message}`)}`
       <footer className="mt-12 text-center text-indigo-800 dark:text-indigo-300 pb-8 flex flex-col items-center space-y-2">
         <p className="text-sm">
           Built with love by{" "}
-          <a href="https://mrbuddhu.com" className="text-purple-600 dark:text-purple-400 hover:underline">@mrbuddhu</a> &{" "}
-          <a href="https://msbuddhu.com" className="text-purple-600 dark:text-purple-400 hover:underline">@msbuddhu</a>
+          <a href="https://linktr.ee/mrbuddhu target="_blank"" className="text-purple-600 dark:text-purple-400 hover:underline">@mrbuddhu</a> &{" "}
+          <a href="https://linktr.ee/msbuddhu target="_blank"" className="text-purple-600 dark:text-purple-400 hover:underline">@msbuddhu</a>
         </p>
         <p className="text-xs text-indigo-600 dark:text-indigo-400">Est. 2021</p>
       </footer>
