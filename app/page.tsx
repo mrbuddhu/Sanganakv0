@@ -666,7 +666,7 @@ ${formData.message}`)}`
                       </div>
                     </div>
                     <div className="text-center text-sm sm:text-base">
-                      <p className="mt-2">Email: <Link href="mailto:contact.sanganak@gmail.com" className="text-indigo-600 dark:text-indigo-400 hover:underline">contact.sanganak@gmail.com</Link></p>
+                      <p className="mt-2">Email: <Link href="mailto:contact@sanganak.org" className="text-indigo-600 dark:text-indigo-400 hover:underline">contact@sanganak.org</Link></p>
                     </div>
                   </div>
                 </CardContent>
