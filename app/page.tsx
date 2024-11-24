@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Megaphone, Smartphone, Code, Cpu, Layout, LayoutGrid, Menu, Twitter, Linkedin, Instagram, Sun, Moon, Brain, ChevronLeft, ChevronRight, Github, Mouse, User, ArrowRight, Phone, MessageCircle } from 'lucide-react'
+import { Megaphone, Smartphone, Code, Cpu, Layout, LayoutGrid, Menu, Twitter, Linkedin, Instagram, Sun, Moon, Brain, ChevronLeft, ChevronRight, Github, Mouse, User, ArrowRight, Phone, MessageCircle, Youtube } from 'lucide-react'
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 
@@ -661,6 +661,12 @@ ${formData.message}`)}`
                           <Link href="https://github.com/SanganakOrg" target="_blank" rel="noopener noreferrer">
                             <Github className="h-4 w-4" />
                             <span className="sr-only">GitHub</span>
+                          </Link>
+                        </Button>
+                        <Button variant="outline" size="icon" className="bg-white/50 dark:bg-gray-700/50 backdrop-blur-sm">
+                          <Link href="https://youtube.com/@sanganakorg" target="_blank" rel="noopener noreferrer">
+                            <Youtube className="h-4 w-4" />
+                            <span className="sr-only">YouTube</span>
                           </Link>
                         </Button>
                       </div>
