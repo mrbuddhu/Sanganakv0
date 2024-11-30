@@ -126,7 +126,7 @@ export default function Component() {
 
   const founders = [
     {
-      name: "mrbuddhu",
+      name: "Aryabhatta",
       role: "Dev Lead & Co-founder",
       icon: User,
       bio: "mrbuddhu is a passionate developer and tech enthusiast with years of experience in creating innovative solutions. As the Dev Lead of Sanganak, he drives the technical vision and ensures the delivery of high-quality products.",
@@ -134,7 +134,7 @@ export default function Component() {
       linkedin: "https://linkedin.com/in/mrbuddhu"
     },
     {
-      name: "msbuddhu",
+      name: "Shabi K",
       role: "Design Lead & Co-founder",
       icon: User,
       bio: "msbuddhu is a creative powerhouse with a keen eye for design and user experience. As the Design Lead of Sanganak, she ensures that all our products are not only functional but also aesthetically pleasing and user-friendly.",
